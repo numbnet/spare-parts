@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Child Theme Configurator 2.4.2</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <style>
+
+
+/*
+Based on Minimal CSS (minimalcss.com) under the MIT license.
+*/
+
+/* Reset */
+* { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/* Layout */
+body { background-color: #fff; color: #333;	font: 14px/20px -apple-system, "HelveticaNeue", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+header { width: 100%; margin: 0 auto; position: relative; padding: 20px 0; margin-bottom: 20px; }
+
+nav ul { margin: 0; }
+nav ul li { display: inline; margin-right: 20px; font-size: 16px; line-height: 28px; color: #333; }
+nav ul li a { color: #333; }
+
+.container { position: relative; max-width: 90%; margin: 0 auto; }
+
+footer { border-top:1px solid #ccc; font-size:11px; line-height:26px; color:#999; }
+footer a { color:#999999; }
+footer a:hover { color:#105CB6; }
+footer ul li { display:inline; list-style:none; padding-left:20px; }
+
+/* Typography */
+a { color: #105CB6; text-decoration: none; }
+a:hover, a:focus { color: #105CB6; text-decoration: underline; }
+a:active { color: #105CB6; }
+
+h1 { font-size: 24px; line-height: 20px; margin: 10px 0; }
+h2 { font-size: 20px; line-height: 20px; margin: 10px 0; }
+h3 { font-size: 16px; line-height: 20px; margin: 10px 0; }
+h4 { font-size: 14px; line-height: 20px; margin: 10px 0; }
+h5 { font-size: 12px; line-height: 20px; margin: 10px 0; }
+h5 { font-size: 10px; line-height: 20px; margin: 10px 0; }
+h1,h2,h3,h4,h5,h6 { color: #333; }
+
+p { margin-bottom: 10px; }
+
+.float-left     { float: left; }
+.float-right    { float: right; }
+img.float-left  { float: left; margin: 0 20px 20px 0; }
+img.float-right { float: right; margin: 0 0 20px 20px; }
+img.center      { margin: 0 auto; display: block; }
+
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Misc */
+hr { background-color: #ccc; border: 0px; color: #ccc; height: 1px; margin: 8px 0 20px 0; }
+pre, code { background:#E0ECF6; display:block; margin-bottom: 20px; padding:10px; }
+
+blockquote { margin: 10px 10px 20px; padding: 9px; background-color: #f8f8f8; color: #666; border-left: 5px solid #ddd; font: 14px/20px Georgia, Times, serif; quotes: "\201C" "\201D"; }
+blockquote p { margin: 0; }
+blockquote:before { content: open-quote; font-weight: bold; }
+blockquote:after  { content: close-quote; font-weight: bold; }
+
+/* List */
+ul { list-style-position:inside; }
+ol { list-style-position:inside; }
+
+/* Table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th { font-weight: bold; }
+tfoot { font-style: italic; }
+
+/* Metadata part */
+
+.metadata {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 90%;
+}
+table.metadata td {
+  padding-right: 20px;
+}
+
+.stats {
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.graph {
+  width: 100%;
+}
+.graph div { float: left; }
+.graph div:first-child { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+.graph div:last-child { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+.percent-done    { background-color: rgb(90, 228, 140); height: 10px; }
+.percent-fuzzy   { background-color: rgb(255, 167, 52); height: 10px; }
+.percent-untrans { background-color: #F1F1F1; height: 10px; }
+.legend {
+  font-size: smaller;
+  color: #aaa;
+  padding-top: 12px;
+  text-align: center;
+}
+
+/* Translations */
+table.translations {
+  width: 100%;
+  table-layout: fixed;
+}
+table.translations th, table.translations td {
+  padding: 5px 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #E1E1E1;
+}
+table.translations th {
+  text-align: left;
+}
+table.translations th:first-child, table.translations td:first-child { padding-left: 0; }
+table.translations th:last-child, table.translations td:last-child { padding-right: 0; }
+
+.with-comments td {
+  border-bottom: none !important;
+}
+tr.comments div {
+  float: right;
+  max-width: 75%;
+  font-size: smaller;
+  color: #aaa;
+}
+tr.comments div p:last-child { margin-bottom: 0; }
+
+.fuzzy .tra {
+  color: rgb(218, 123, 0);
+}
+
+.msgctxt {
+  color: rgb(70, 109, 137);
+  font-size: smaller;
+  background-color: rgb(217, 232, 242);
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin-right: 4px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class='container'>
+<table class='metadata'>
+<tr><td>Проект:</td><td>Child Theme Configurator 2.4.2</td></tr>
+<tr><td>Язык:</td><td>английский</td></tr>
+</table>
+<div class='stats'>
+  <div class='graph'>
+    <div class='percent-done' style='width: 100%'>&nbsp;</div>
+  </div>
+  <div class='legend'>Переведено: 306 из 306 (100 %)  </div>
+</div>
+<table class='translations'>
+  <thead>
+    <tr>
+      <th>Исходный текст — английский</th>
+      <th>Перевод — английский</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr class='i with-comments'>
+<td class='src'  lang='en'>
+Child Theme Configurator</td>
+<td class='tra'  lang='en'>
+Child Theme Configurator</td>
+</tr>
+<tr class='comments'>
+  <td colspan='2'><div><p>
+Plugin Name of the plugin/theme<br>
+</p>
+</div></td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Themes</td>
+<td class='tra'  lang='en'>
+Child Themes</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Configurator requires WordPress version %s or later.</td>
+<td class='tra'  lang='en'>
+Child Theme Configurator requires WordPress version %s or later.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+<td class='tra'  lang='en'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The Theme editor has been disabled. Template files must be edited offline.</td>
+<td class='tra'  lang='en'>
+The Theme editor has been disabled. Template files must be edited offline.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click here to edit template files using the Theme Editor</td>
+<td class='tra'  lang='en'>
+Click here to edit template files using the Theme Editor</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+URL/None</td>
+<td class='tra'  lang='en'>
+URL/None</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Origin</td>
+<td class='tra'  lang='en'>
+Origin</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Color 1</td>
+<td class='tra'  lang='en'>
+Color 1</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Color 2</td>
+<td class='tra'  lang='en'>
+Color 2</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Width/None</td>
+<td class='tra'  lang='en'>
+Width/None</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Style</td>
+<td class='tra'  lang='en'>
+Style</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Color</td>
+<td class='tra'  lang='en'>
+Color</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Are you sure you wish to RESET? This will destroy any work you have done in the Configurator.</td>
+<td class='tra'  lang='en'>
+Are you sure you wish to RESET? This will destroy any work you have done in the Configurator.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;span style="font-size:10px"&gt;!&lt;/span&gt;</td>
+<td class='tra'  lang='en'>
+&lt;span style="font-size:10px"&gt;!&lt;/span&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Selectors</td>
+<td class='tra'  lang='en'>
+Selectors</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Close</td>
+<td class='tra'  lang='en'>
+Close</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Edit Selector</td>
+<td class='tra'  lang='en'>
+Edit Selector</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Cancel</td>
+<td class='tra'  lang='en'>
+Cancel</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Rename</td>
+<td class='tra'  lang='en'>
+Rename</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The stylesheet cannot be displayed.</td>
+<td class='tra'  lang='en'>
+The stylesheet cannot be displayed.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+(Child Only)</td>
+<td class='tra'  lang='en'>
+(Child Only)</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Please enter a valid Child Theme.</td>
+<td class='tra'  lang='en'>
+Please enter a valid Child Theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Please enter a valid Child Theme name.</td>
+<td class='tra'  lang='en'>
+Please enter a valid Child Theme name.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;strong&gt;%s&lt;/strong&gt; exists. Please enter a different Child Theme</td>
+<td class='tra'  lang='en'>
+&lt;strong&gt;%s&lt;/strong&gt; exists. Please enter a different Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The page could not be loaded correctly.</td>
+<td class='tra'  lang='en'>
+The page could not be loaded correctly.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Conflicting or out-of-date jQuery libraries were loaded by another plugin:</td>
+<td class='tra'  lang='en'>
+Conflicting or out-of-date jQuery libraries were loaded by another plugin:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Deactivating or replacing plugins may resolve this issue.</td>
+<td class='tra'  lang='en'>
+Deactivating or replacing plugins may resolve this issue.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+%sWhy am I seeing this?%s</td>
+<td class='tra'  lang='en'>
+%sWhy am I seeing this?%s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+No Styles Available. Check Parent/Child settings.</td>
+<td class='tra'  lang='en'>
+No Styles Available. Check Parent/Child settings.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Updating</td>
+<td class='tra'  lang='en'>
+Updating</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Checking</td>
+<td class='tra'  lang='en'>
+Checking</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The theme "%s" generated unexpected PHP debug output.</td>
+<td class='tra'  lang='en'>
+The theme "%s" generated unexpected PHP debug output.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The theme "%s" could not be analyzed because the preview did not render correctly.</td>
+<td class='tra'  lang='en'>
+The theme "%s" could not be analyzed because the preview did not render correctly.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;First, verify you can &lt;a href="%s"&gt;preview your home page with the Customizer&lt;/a&gt; and try analyzing again.&lt;/p&gt;&lt;p&gt;If that does not work, try temporarily disabling plugins that &lt;strong&gt;minify CSS&lt;/strong&gt; or that &lt;strong&gt;force redirects between HTTP and HTTPS&lt;/strong&gt;.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;First, verify you can &lt;a href="%s"&gt;preview your home page with the Customizer&lt;/a&gt; and try analyzing again.&lt;/p&gt;&lt;p&gt;If that does not work, try temporarily disabling plugins that &lt;strong&gt;minify CSS&lt;/strong&gt; or that &lt;strong&gt;force redirects between HTTP and HTTPS&lt;/strong&gt;.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to show/hide PHP debug output</td>
+<td class='tra'  lang='en'>
+Click to show/hide PHP debug output</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;&lt;strong&gt;PLEASE NOTE:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;The analyzer reveals errors that may otherwise go undetected. Unless this is a fatal error, WordPress may appear to work correctly; however, PHP will continue to log the error until it is resolved. Please contact the author of any theme or plugin&lt;/em&gt; &lt;strong&gt;mentioned above&lt;/strong&gt; &lt;em&gt;and cut/paste the error from the text area.&lt;/em&gt; &lt;strong&gt;Do not use a screen capture as it may cut off part of the error text.&lt;/strong&gt; &lt;em&gt;Additional information about the error may also be available in the &lt;a href="http://www.childthemeconfigurator.com/child-theme-faqs/" target="_blank"&gt;CTC documentation&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;&lt;strong&gt;PLEASE NOTE:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;The analyzer reveals errors that may otherwise go undetected. Unless this is a fatal error, WordPress may appear to work correctly; however, PHP will continue to log the error until it is resolved. Please contact the author of any theme or plugin&lt;/em&gt; &lt;strong&gt;mentioned above&lt;/strong&gt; &lt;em&gt;and cut/paste the error from the text area.&lt;/em&gt; &lt;strong&gt;Do not use a screen capture as it may cut off part of the error text.&lt;/strong&gt; &lt;em&gt;Additional information about the error may also be available in the &lt;a href="http://www.childthemeconfigurator.com/child-theme-faqs/" target="_blank"&gt;CTC documentation&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Do Not Activate "%s"! A PHP FATAL ERROR has been detected.</td>
+<td class='tra'  lang='en'>
+Do Not Activate "%s"! A PHP FATAL ERROR has been detected.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme loads stylesheets after the wp_styles queue.</td>
+<td class='tra'  lang='en'>
+This theme loads stylesheets after the wp_styles queue.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;This makes it difficult for plugins to override these styles. You can try to resolve this using the  "Repair header template" option (Step 6, "Additional handling options", below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;This makes it difficult for plugins to override these styles. You can try to resolve this using the  "Repair header template" option (Step 6, "Additional handling options", below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme loads the parent theme's &lt;code&gt;style.css&lt;/code&gt; file outside the wp_styles queue.</td>
+<td class='tra'  lang='en'>
+This theme loads the parent theme's &lt;code&gt;style.css&lt;/code&gt; file outside the wp_styles queue.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;This is common with older themes but requires the use of &lt;code&gt;@import&lt;/code&gt;, which is no longer recommended. You can try to resolve this using the "Repair header template" option (see step 6, "Additional handling options", below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;This is common with older themes but requires the use of &lt;code&gt;@import&lt;/code&gt;, which is no longer recommended. You can try to resolve this using the "Repair header template" option (see step 6, "Additional handling options", below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This child theme does not load a Configurator stylesheet.</td>
+<td class='tra'  lang='en'>
+This child theme does not load a Configurator stylesheet.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;If you want to customize styles using this plugin, please click "Configure Child Theme" again to add this to the settings.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;If you want to customize styles using this plugin, please click "Configure Child Theme" again to add this to the settings.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This child theme uses the parent stylesheet but does not load the parent theme's &lt;code&gt;style.css&lt;/code&gt; file.</td>
+<td class='tra'  lang='en'>
+This child theme uses the parent stylesheet but does not load the parent theme's &lt;code&gt;style.css&lt;/code&gt; file.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;Please select a stylesheet handling method or check "Ignore parent theme stylesheets" (see step 6, below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;Please select a stylesheet handling method or check "Ignore parent theme stylesheets" (see step 6, below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This child theme appears to be functioning correctly.</td>
+<td class='tra'  lang='en'>
+This child theme appears to be functioning correctly.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme appears OK to use as a Child theme.</td>
+<td class='tra'  lang='en'>
+This theme appears OK to use as a Child theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This Child Theme has not been configured for this plugin.</td>
+<td class='tra'  lang='en'>
+This Child Theme has not been configured for this plugin.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;The Configurator makes significant modifications to the child theme, including stylesheet changes and additional php functions. Please consider using the DUPLICATE child theme option (see step 1, above) and keeping the original as a backup.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;The Configurator makes significant modifications to the child theme, including stylesheet changes and additional php functions. Please consider using the DUPLICATE child theme option (see step 1, above) and keeping the original as a backup.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This child theme uses &lt;code&gt;@import&lt;/code&gt; to load the parent theme's &lt;code&gt;style.css&lt;/code&gt; file.</td>
+<td class='tra'  lang='en'>
+This child theme uses &lt;code&gt;@import&lt;/code&gt; to load the parent theme's &lt;code&gt;style.css&lt;/code&gt; file.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;Please consider selecting "Use the WordPress style queue" for the parent stylesheet handling option (see step 6, below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;Please consider selecting "Use the WordPress style queue" for the parent stylesheet handling option (see step 6, below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme loads additional stylesheets after the &lt;code&gt;style.css&lt;/code&gt; file:</td>
+<td class='tra'  lang='en'>
+This theme loads additional stylesheets after the &lt;code&gt;style.css&lt;/code&gt; file:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;Consider saving new custom styles to a "Separate stylesheet" (see step 5, below) so that you can customize these styles.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;Consider saving new custom styles to a "Separate stylesheet" (see step 5, below) so that you can customize these styles.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The parent theme's &lt;code&gt;style.css&lt;/code&gt; file is being loaded automatically.</td>
+<td class='tra'  lang='en'>
+The parent theme's &lt;code&gt;style.css&lt;/code&gt; file is being loaded automatically.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;The Configurator selected "Do not add any parent stylesheet handling" for the "Parent stylesheet handling" option (see step 6, below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;The Configurator selected "Do not add any parent stylesheet handling" for the "Parent stylesheet handling" option (see step 6, below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme does not require the parent theme's &lt;code&gt;style.css&lt;/code&gt; file for its appearance.</td>
+<td class='tra'  lang='en'>
+This theme does not require the parent theme's &lt;code&gt;style.css&lt;/code&gt; file for its appearance.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This Child Theme was configured to accomodate a hard-coded stylesheet link.</td>
+<td class='tra'  lang='en'>
+This Child Theme was configured to accomodate a hard-coded stylesheet link.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;This workaround was used in earlier versions of CTC and can be eliminated by using the "Repair header template" option (see step 6, "Additional handling options", below).&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;This workaround was used in earlier versions of CTC and can be eliminated by using the "Repair header template" option (see step 6, "Additional handling options", below).&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to show/hide raw analysis data. Please include contents below with any support requests.</td>
+<td class='tra'  lang='en'>
+Click to show/hide raw analysis data. Please include contents below with any support requests.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This child theme was configured using the CTC Pro "Genesis stylesheet handling" method.</td>
+<td class='tra'  lang='en'>
+This child theme was configured using the CTC Pro "Genesis stylesheet handling" method.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;This method has been replaced by the "Separate stylesheet" and "Ignore Parent Theme" options ( selected below ) for broader framework compatability.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;This method has been replaced by the "Separate stylesheet" and "Ignore Parent Theme" options ( selected below ) for broader framework compatability.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;%1Click Here%2 to view the theme as viewed by the Analyzer.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;%1Click Here%2 to view the theme as viewed by the Analyzer.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This theme uses a RTL (right-to-left) stylesheet that is not being loaded in the child theme.</td>
+<td class='tra'  lang='en'>
+This theme uses a RTL (right-to-left) stylesheet that is not being loaded in the child theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use the Web Fonts tab to add a link to the parent RTL stylesheet. See the documentation for more information.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+Use the Web Fonts tab to add a link to the parent RTL stylesheet. See the documentation for more information.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Both WP Rocket and Autoptimize plugins are enabled.</td>
+<td class='tra'  lang='en'>
+Both WP Rocket and Autoptimize plugins are enabled.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The combination of these two plugins interferes with the Analysis results. Please temporarily deactivate one of them and Analyze again.</td>
+<td class='tra'  lang='en'>
+The combination of these two plugins interferes with the Analysis results. Please temporarily deactivate one of them and Analyze again.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;p&gt;&lt;strong&gt;The WordPress configuration file has been modified incorrectly.&lt;/strong&gt; Please see &lt;a href="http://www.childthemeconfigurator.com/child-theme-faqs/#constants" target="_blank"&gt;this FAQ&lt;/a&gt; for more information.&lt;/p&gt;</td>
+<td class='tra'  lang='en'>
+&lt;p&gt;&lt;strong&gt;The WordPress configuration file has been modified incorrectly.&lt;/strong&gt; Please see &lt;a href="http://www.childthemeconfigurator.com/child-theme-faqs/#constants" target="_blank"&gt;this FAQ&lt;/a&gt; for more information.&lt;/p&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Enter your Update Key</td>
+<td class='tra'  lang='en'>
+Enter your Update Key</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Sorry, we could not validate your Update Key. Please try again or, if you need assistance, please %s</td>
+<td class='tra'  lang='en'>
+Sorry, we could not validate your Update Key. Please try again or, if you need assistance, please %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+contact us.</td>
+<td class='tra'  lang='en'>
+contact us.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Configurator Pro version %s</td>
+<td class='tra'  lang='en'>
+Child Theme Configurator Pro version %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+ is not compatible with the installed version of Child Theme Configurator and has been deactivated.</td>
+<td class='tra'  lang='en'>
+ is not compatible with the installed version of Child Theme Configurator and has been deactivated.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+You can upgrade to the latest version by clicking the button below. After validating the Update Key from your order, WordPress will retrieve the plugin from our website and install it automatically. If you no longer wish to use the premium version, you can dismiss this notice by clicking the close icon (x) at the top right.</td>
+<td class='tra'  lang='en'>
+You can upgrade to the latest version by clicking the button below. After validating the Update Key from your order, WordPress will retrieve the plugin from our website and install it automatically. If you no longer wish to use the premium version, you can dismiss this notice by clicking the close icon (x) at the top right.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upgrade Now</td>
+<td class='tra'  lang='en'>
+Upgrade Now</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Update Plugin</td>
+<td class='tra'  lang='en'>
+Update Plugin</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Parse additional stylesheets:</td>
+<td class='tra'  lang='en'>
+Parse additional stylesheets:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Stylesheets that are currently being loaded by the parent theme are automatically selected below (except for Bootstrap stylesheets which add a large amount data to the configuration). To further reduce overhead, select only the additional stylesheets you wish to customize.</td>
+<td class='tra'  lang='en'>
+Stylesheets that are currently being loaded by the parent theme are automatically selected below (except for Bootstrap stylesheets which add a large amount data to the configuration). To further reduce overhead, select only the additional stylesheets you wish to customize.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Learn more about Premium Support</td>
+<td class='tra'  lang='en'>
+Learn more about Premium Support</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Maybe you are having trouble getting your child theme to work, or just don’t want to mess with it ... &lt;strong&gt;Let us set it up for you!&lt;/strong&gt;</td>
+<td class='tra'  lang='en'>
+Maybe you are having trouble getting your child theme to work, or just don’t want to mess with it ... &lt;strong&gt;Let us set it up for you!&lt;/strong&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Learn more</td>
+<td class='tra'  lang='en'>
+Learn more</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Learn more about Hook Highlighter</td>
+<td class='tra'  lang='en'>
+Learn more about Hook Highlighter</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Hook Highlighter provides Administrators insight into the internal program flow of WordPress when activated on any front-facing page of a website.</td>
+<td class='tra'  lang='en'>
+Hook Highlighter provides Administrators insight into the internal program flow of WordPress when activated on any front-facing page of a website.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Display action and filter hooks, program files and backtrace information inline for the current page.</td>
+<td class='tra'  lang='en'>
+Display action and filter hooks, program files and backtrace information inline for the current page.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Learn more about CTC Pro</td>
+<td class='tra'  lang='en'>
+Learn more about CTC Pro</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Customizing WordPress just got even easier.</td>
+<td class='tra'  lang='en'>
+Customizing WordPress just got even easier.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Thousands of users have already seen the benefits of using Child Theme Configurator. If you spend any amount of time customizing WordPress, CTC Pro will help maximize your productivity.</td>
+<td class='tra'  lang='en'>
+Thousands of users have already seen the benefits of using Child Theme Configurator. If you spend any amount of time customizing WordPress, CTC Pro will help maximize your productivity.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Designed by Developers Who Use It Every Day.</td>
+<td class='tra'  lang='en'>
+Designed by Developers Who Use It Every Day.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+We've packed in more features to make design work quicker and easier with &lt;strong&gt;Child Theme Configurator Pro.&lt;/strong&gt;</td>
+<td class='tra'  lang='en'>
+We've packed in more features to make design work quicker and easier with &lt;strong&gt;Child Theme Configurator Pro.&lt;/strong&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Customize Plugin Stylesheets</td>
+<td class='tra'  lang='en'>
+Customize Plugin Stylesheets</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Apply the power of CTC's top-rated interface to your site's plugin styles. All new design makes it much easier to get the results you want.</td>
+<td class='tra'  lang='en'>
+Apply the power of CTC's top-rated interface to your site's plugin styles. All new design makes it much easier to get the results you want.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Quick Preview</td>
+<td class='tra'  lang='en'>
+Quick Preview</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Preview your child theme with a single click.</td>
+<td class='tra'  lang='en'>
+Preview your child theme with a single click.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Color Palettes</td>
+<td class='tra'  lang='en'>
+Color Palettes</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Keep the colors you select just a click away. No more searching for hex codes and RGB values.</td>
+<td class='tra'  lang='en'>
+Keep the colors you select just a click away. No more searching for hex codes and RGB values.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Find related styles</td>
+<td class='tra'  lang='en'>
+Find related styles</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use the "All Styles" panel to edit groups of selectors from a single combined list.</td>
+<td class='tra'  lang='en'>
+Use the "All Styles" panel to edit groups of selectors from a single combined list.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Find styles by Nav Menu</td>
+<td class='tra'  lang='en'>
+Find styles by Nav Menu</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Tweak menus quickly and easily.</td>
+<td class='tra'  lang='en'>
+Tweak menus quickly and easily.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Most recent edits</td>
+<td class='tra'  lang='en'>
+Most recent edits</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Return to recently edited selectors from a toggleable sidebar.</td>
+<td class='tra'  lang='en'>
+Return to recently edited selectors from a toggleable sidebar.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Add Child Theme Files</td>
+<td class='tra'  lang='en'>
+Add Child Theme Files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Create new template and script files right from the admin.</td>
+<td class='tra'  lang='en'>
+Create new template and script files right from the admin.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Top-rated Online Support</td>
+<td class='tra'  lang='en'>
+Top-rated Online Support</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Online Documentation</td>
+<td class='tra'  lang='en'>
+Online Documentation</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Tutorial Videos</td>
+<td class='tra'  lang='en'>
+Tutorial Videos</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upgrade Offer</td>
+<td class='tra'  lang='en'>
+Upgrade Offer</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use coupon code</td>
+<td class='tra'  lang='en'>
+Use coupon code</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+wordpress-org</td>
+<td class='tra'  lang='en'>
+wordpress-org</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+and get &lt;strong&gt;20% off entire order&lt;/strong&gt;.</td>
+<td class='tra'  lang='en'>
+and get &lt;strong&gt;20% off entire order&lt;/strong&gt;.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Order Now</td>
+<td class='tra'  lang='en'>
+Order Now</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+*Prices and offers subject to change.</td>
+<td class='tra'  lang='en'>
+*Prices and offers subject to change.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upgrade</td>
+<td class='tra'  lang='en'>
+Upgrade</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Backup</td>
+<td class='tra'  lang='en'>
+Backup</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Restore backup from</td>
+<td class='tra'  lang='en'>
+Restore backup from</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Currently loaded</td>
+<td class='tra'  lang='en'>
+Currently loaded</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Debug</td>
+<td class='tra'  lang='en'>
+Debug</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Zip file creation failed.</td>
+<td class='tra'  lang='en'>
+Zip file creation failed.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+You do not have permission to configure child themes.</td>
+<td class='tra'  lang='en'>
+You do not have permission to configure child themes.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+%s does not exist. Please select a valid Parent Theme.</td>
+<td class='tra'  lang='en'>
+%s does not exist. Please select a valid Parent Theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The Functions file is required and cannot be deleted.</td>
+<td class='tra'  lang='en'>
+The Functions file is required and cannot be deleted.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Please select a valid Parent Theme.</td>
+<td class='tra'  lang='en'>
+Please select a valid Parent Theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Please select a valid Child Theme.</td>
+<td class='tra'  lang='en'>
+Please select a valid Child Theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Please enter a valid Child Theme directory name.</td>
+<td class='tra'  lang='en'>
+Please enter a valid Child Theme directory name.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;strong&gt;%s&lt;/strong&gt; exists. Please enter a different Child Theme template name.</td>
+<td class='tra'  lang='en'>
+&lt;strong&gt;%s&lt;/strong&gt; exists. Please enter a different Child Theme template name.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Your theme directories are not writable.</td>
+<td class='tra'  lang='en'>
+Your theme directories are not writable.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Could not upgrade child theme</td>
+<td class='tra'  lang='en'>
+Could not upgrade child theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Your stylesheet is not writable.</td>
+<td class='tra'  lang='en'>
+Your stylesheet is not writable.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+A closing PHP tag was detected in Child theme functions file so "Parent Stylesheet Handling" option was not configured. Closing PHP at the end of the file is discouraged as it can cause premature HTTP headers. Please edit &lt;code&gt;functions.php&lt;/code&gt; to remove the final &lt;code&gt;?&amp;gt;&lt;/code&gt; tag and click "Generate/Rebuild Child Theme Files" again.</td>
+<td class='tra'  lang='en'>
+A closing PHP tag was detected in Child theme functions file so "Parent Stylesheet Handling" option was not configured. Closing PHP at the end of the file is discouraged as it can cause premature HTTP headers. Please edit &lt;code&gt;functions.php&lt;/code&gt; to remove the final &lt;code&gt;?&amp;gt;&lt;/code&gt; tag and click "Generate/Rebuild Child Theme Files" again.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Could not copy file: %s</td>
+<td class='tra'  lang='en'>
+Could not copy file: %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Could not delete %s file.</td>
+<td class='tra'  lang='en'>
+Could not delete %s file.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+could not copy %s</td>
+<td class='tra'  lang='en'>
+could not copy %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+invalid dir: %s</td>
+<td class='tra'  lang='en'>
+invalid dir: %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+deleted: %s != %s files</td>
+<td class='tra'  lang='en'>
+deleted: %s != %s files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+newfiles != files</td>
+<td class='tra'  lang='en'>
+newfiles != files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+There were errors while resetting permissions.</td>
+<td class='tra'  lang='en'>
+There were errors while resetting permissions.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Could not upload file.</td>
+<td class='tra'  lang='en'>
+Could not upload file.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Invalid theme root directory.</td>
+<td class='tra'  lang='en'>
+Invalid theme root directory.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+No writable temp directory.</td>
+<td class='tra'  lang='en'>
+No writable temp directory.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+PclZip returned zero bytes.</td>
+<td class='tra'  lang='en'>
+PclZip returned zero bytes.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Unpack failed -- %s</td>
+<td class='tra'  lang='en'>
+Unpack failed -- %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Pack failed -- %s</td>
+<td class='tra'  lang='en'>
+Pack failed -- %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Maximum number of styles exceeded.</td>
+<td class='tra'  lang='en'>
+Maximum number of styles exceeded.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Error moving file: %s</td>
+<td class='tra'  lang='en'>
+Error moving file: %s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Could not set write permissions.</td>
+<td class='tra'  lang='en'>
+Could not set write permissions.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Make Selected Writable</td>
+<td class='tra'  lang='en'>
+Make Selected Writable</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Copy Selected to Child Theme</td>
+<td class='tra'  lang='en'>
+Copy Selected to Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Delete Selected</td>
+<td class='tra'  lang='en'>
+Delete Selected</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Parent Templates</td>
+<td class='tra'  lang='en'>
+Parent Templates</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Files</td>
+<td class='tra'  lang='en'>
+Child Theme Files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Copy PHP templates from the parent theme by selecting them here. The Configurator defines a template as a Theme PHP file having no PHP functions or classes. Other PHP files cannot be safely overridden by a child theme.</td>
+<td class='tra'  lang='en'>
+Copy PHP templates from the parent theme by selecting them here. The Configurator defines a template as a Theme PHP file having no PHP functions or classes. Other PHP files cannot be safely overridden by a child theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+CAUTION: If your child theme is active, the child theme version of the file will be used instead of the parent immediately after it is copied.</td>
+<td class='tra'  lang='en'>
+CAUTION: If your child theme is active, the child theme version of the file will be used instead of the parent immediately after it is copied.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The %s file is generated separately and cannot be copied here.</td>
+<td class='tra'  lang='en'>
+The %s file is generated separately and cannot be copied here.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to edit functions.php</td>
+<td class='tra'  lang='en'>
+Click to edit functions.php</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to edit files using the Theme Editor</td>
+<td class='tra'  lang='en'>
+Click to edit files using the Theme Editor</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Delete child theme templates by selecting them here.</td>
+<td class='tra'  lang='en'>
+Delete child theme templates by selecting them here.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Delete child theme templates or make them writable by selecting them here. Writable files are displayed in &lt;span style="color:red"&gt;red&lt;/span&gt;.</td>
+<td class='tra'  lang='en'>
+Delete child theme templates or make them writable by selecting them here. Writable files are displayed in &lt;span style="color:red"&gt;red&lt;/span&gt;.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upload New Child Theme Image</td>
+<td class='tra'  lang='en'>
+Upload New Child Theme Image</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Theme images reside under the &lt;code&gt;images&lt;/code&gt; directory in your child theme and are meant for stylesheet use only. Use the Media Library for content images.</td>
+<td class='tra'  lang='en'>
+Theme images reside under the &lt;code&gt;images&lt;/code&gt; directory in your child theme and are meant for stylesheet use only. Use the Media Library for content images.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upload</td>
+<td class='tra'  lang='en'>
+Upload</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Screenshot</td>
+<td class='tra'  lang='en'>
+Child Theme Screenshot</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Upload New Screenshot</td>
+<td class='tra'  lang='en'>
+Upload New Screenshot</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The theme screenshot should be a 4:3 ratio (e.g., 880px x 660px) JPG, PNG or GIF. It will be renamed &lt;code&gt;screenshot&lt;/code&gt;.</td>
+<td class='tra'  lang='en'>
+The theme screenshot should be a 4:3 ratio (e.g., 880px x 660px) JPG, PNG or GIF. It will be renamed &lt;code&gt;screenshot&lt;/code&gt;.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Export Child Theme as Zip Archive</td>
+<td class='tra'  lang='en'>
+Export Child Theme as Zip Archive</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click "Export Zip" to save a backup of the currently loaded child theme. You can export any of your themes from the Parent/Child tab.</td>
+<td class='tra'  lang='en'>
+Click "Export Zip" to save a backup of the currently loaded child theme. You can export any of your themes from the Parent/Child tab.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Secure Child Theme</td>
+<td class='tra'  lang='en'>
+Secure Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Attempt to reset child theme permissions to user ownership and read-only access.</td>
+<td class='tra'  lang='en'>
+Attempt to reset child theme permissions to user ownership and read-only access.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Make read-only</td>
+<td class='tra'  lang='en'>
+Make read-only</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Images</td>
+<td class='tra'  lang='en'>
+Child Theme Images</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Delete child theme images by selecting them here.</td>
+<td class='tra'  lang='en'>
+Delete child theme images by selecting them here.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+version</td>
+<td class='tra'  lang='en'>
+version</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+The child theme is in read-only mode and Child Theme Configurator cannot apply changes. Click to see options</td>
+<td class='tra'  lang='en'>
+The child theme is in read-only mode and Child Theme Configurator cannot apply changes. Click to see options</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;li&gt;Temporarily set write permissions by clicking the button below. When you are finished editing, revert to read-only by clicking "Make read-only" under the "Files" tab.&lt;/li&gt;</td>
+<td class='tra'  lang='en'>
+&lt;li&gt;Temporarily set write permissions by clicking the button below. When you are finished editing, revert to read-only by clicking "Make read-only" under the "Files" tab.&lt;/li&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Make files writable</td>
+<td class='tra'  lang='en'>
+Make files writable</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;li&gt;&lt;a target="_blank"  href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants" title="Editin wp-config.php"&gt;Add your FTP/SSH credentials to the WordPress config file&lt;/a&gt;.&lt;/li&gt;</td>
+<td class='tra'  lang='en'>
+&lt;li&gt;&lt;a target="_blank"  href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants" title="Editin wp-config.php"&gt;Add your FTP/SSH credentials to the WordPress config file&lt;/a&gt;.&lt;/li&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;li&gt;&lt;a target="_blank" href="http://technet.microsoft.com/en-us/library/cc771170" title="Setting Application Pool Identity"&gt;Assign WordPress to an application pool that has write permissions&lt;/a&gt; (Windows IIS systems).&lt;/li&gt;</td>
+<td class='tra'  lang='en'>
+&lt;li&gt;&lt;a target="_blank" href="http://technet.microsoft.com/en-us/library/cc771170" title="Setting Application Pool Identity"&gt;Assign WordPress to an application pool that has write permissions&lt;/a&gt; (Windows IIS systems).&lt;/li&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;li&gt;&lt;a target="_blank" href="http://codex.wordpress.org/Changing_File_Permissions" title="Changing File Permissions"&gt;Set write permissions on the server manually&lt;/a&gt; (not recommended).&lt;/li&gt;</td>
+<td class='tra'  lang='en'>
+&lt;li&gt;&lt;a target="_blank" href="http://codex.wordpress.org/Changing_File_Permissions" title="Changing File Permissions"&gt;Set write permissions on the server manually&lt;/a&gt; (not recommended).&lt;/li&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;li&gt;Run PHP under Apache with suEXEC (contact your web host).&lt;/li&gt;</td>
+<td class='tra'  lang='en'>
+&lt;li&gt;Run PHP under Apache with suEXEC (contact your web host).&lt;/li&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This Child Theme has incorrect ownership permissions. Child Theme Configurator will attempt to correct this when you click the button below.</td>
+<td class='tra'  lang='en'>
+This Child Theme has incorrect ownership permissions. Child Theme Configurator will attempt to correct this when you click the button below.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Correct Child Theme Permissions</td>
+<td class='tra'  lang='en'>
+Correct Child Theme Permissions</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Configurator needs to update its internal data. Please set your preferences below and click "Generate Child Theme Files" to update your configuration.</td>
+<td class='tra'  lang='en'>
+Child Theme Configurator needs to update its internal data. Please set your preferences below and click "Generate Child Theme Files" to update your configuration.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+&lt;strong&gt;However, some styles could not be parsed due to memory limits.&lt;/strong&gt; Try deselecting "Additional Stylesheets" below and click "Generate/Rebuild Child Theme Files". %sWhy am I seeing this?%s</td>
+<td class='tra'  lang='en'>
+&lt;strong&gt;However, some styles could not be parsed due to memory limits.&lt;/strong&gt; Try deselecting "Additional Stylesheets" below and click "Generate/Rebuild Child Theme Files". %sWhy am I seeing this?%s</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Configurator did not detect any configuration data because a previously configured Child Theme has been removed. Please follow the steps for "CONFIGURE an existing Child Theme" under the "Parent/Child" Tab.</td>
+<td class='tra'  lang='en'>
+Child Theme Configurator did not detect any configuration data because a previously configured Child Theme has been removed. Please follow the steps for "CONFIGURE an existing Child Theme" under the "Parent/Child" Tab.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Your stylesheet has changed since the last time you used the Configurator. Please follow the steps for "CONFIGURE an existing Child Theme" under the "Parent/Child" Tab or you will lose these changes.</td>
+<td class='tra'  lang='en'>
+Your stylesheet has changed since the last time you used the Configurator. Please follow the steps for "CONFIGURE an existing Child Theme" under the "Parent/Child" Tab or you will lose these changes.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Thank you for installing Child Theme Configurator.</td>
+<td class='tra'  lang='en'>
+Thank you for installing Child Theme Configurator.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+A lot of time and testing has gone into this release but there may be edge cases. If you have any questions, please</td>
+<td class='tra'  lang='en'>
+A lot of time and testing has gone into this release but there may be edge cases. If you have any questions, please</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Contact Us.</td>
+<td class='tra'  lang='en'>
+Contact Us.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+For more information, please open the Help tab at the top right or </td>
+<td class='tra'  lang='en'>
+For more information, please open the Help tab at the top right or </td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+click here to view the latest videos.</td>
+<td class='tra'  lang='en'>
+click here to view the latest videos.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+It is a good idea to save a Zip Archive of your Child Theme before using CTC for the first time. Click the "save backup" link ( see Step 2, below ) to export your themes.</td>
+<td class='tra'  lang='en'>
+It is a good idea to save a Zip Archive of your Child Theme before using CTC for the first time. Click the "save backup" link ( see Step 2, below ) to export your themes.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select an action:</td>
+<td class='tra'  lang='en'>
+Select an action:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+CREATE a new Child Theme</td>
+<td class='tra'  lang='en'>
+CREATE a new Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Install a new customizable child theme using an installed theme as a parent.</td>
+<td class='tra'  lang='en'>
+Install a new customizable child theme using an installed theme as a parent.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+CONFIGURE an existing Child Theme</td>
+<td class='tra'  lang='en'>
+CONFIGURE an existing Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Set up a previously installed child theme for use with the Configurator or to modify current settings.</td>
+<td class='tra'  lang='en'>
+Set up a previously installed child theme for use with the Configurator or to modify current settings.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+DUPLICATE an existing Child Theme</td>
+<td class='tra'  lang='en'>
+DUPLICATE an existing Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Make a complete copy of an existing Child Theme in a new directory, including any menus, widgets and other Customizer settings. The option to copy the Parent Theme settings (step 8, below) is disabled with this action.</td>
+<td class='tra'  lang='en'>
+Make a complete copy of an existing Child Theme in a new directory, including any menus, widgets and other Customizer settings. The option to copy the Parent Theme settings (step 8, below) is disabled with this action.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+RESET an existing Child Theme (this will destroy any work you have done in the Configurator)</td>
+<td class='tra'  lang='en'>
+RESET an existing Child Theme (this will destroy any work you have done in the Configurator)</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Revert the Child theme stylesheet and functions files to their state before the initial configuration or last reset. Additional child theme files will not be removed, but you can delete them under the Files tab.</td>
+<td class='tra'  lang='en'>
+Revert the Child theme stylesheet and functions files to their state before the initial configuration or last reset. Additional child theme files will not be removed, but you can delete them under the Files tab.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select a Parent Theme:</td>
+<td class='tra'  lang='en'>
+Select a Parent Theme:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click here to save a backup of the selected theme.</td>
+<td class='tra'  lang='en'>
+Click here to save a backup of the selected theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Analyze</td>
+<td class='tra'  lang='en'>
+Analyze</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Analyze Parent Theme</td>
+<td class='tra'  lang='en'>
+Analyze Parent Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click "Analyze" to determine stylesheet dependencies and other potential issues.</td>
+<td class='tra'  lang='en'>
+Click "Analyze" to determine stylesheet dependencies and other potential issues.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select a Child Theme:</td>
+<td class='tra'  lang='en'>
+Select a Child Theme:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Analyze Child Theme</td>
+<td class='tra'  lang='en'>
+Analyze Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Name the new theme directory:</td>
+<td class='tra'  lang='en'>
+Name the new theme directory:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Directory Name</td>
+<td class='tra'  lang='en'>
+Directory Name</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+NOTE:</td>
+<td class='tra'  lang='en'>
+NOTE:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This is NOT the name of the Child Theme. You can customize the name, description, etc. in step 7, below.</td>
+<td class='tra'  lang='en'>
+This is NOT the name of the Child Theme. You can customize the name, description, etc. in step 7, below.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Verify Child Theme directory:</td>
+<td class='tra'  lang='en'>
+Verify Child Theme directory:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+For verification only (you cannot modify the directory of an existing Child Theme).</td>
+<td class='tra'  lang='en'>
+For verification only (you cannot modify the directory of an existing Child Theme).</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select where to save new styles:</td>
+<td class='tra'  lang='en'>
+Select where to save new styles:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Primary Stylesheet (style.css)</td>
+<td class='tra'  lang='en'>
+Primary Stylesheet (style.css)</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Save new custom styles directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme.</td>
+<td class='tra'  lang='en'>
+Save new custom styles directly to the Child Theme primary stylesheet, replacing the existing values. The primary stylesheet will load in the order set by the theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Separate Stylesheet</td>
+<td class='tra'  lang='en'>
+Separate Stylesheet</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Save new custom styles to a separate stylesheet and combine any existing child theme styles with the parent to form baseline. Select this option if you want to preserve the existing child theme styles instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet.</td>
+<td class='tra'  lang='en'>
+Save new custom styles to a separate stylesheet and combine any existing child theme styles with the parent to form baseline. Select this option if you want to preserve the existing child theme styles instead of overwriting them. This option also allows you to customize stylesheets that load after the primary stylesheet.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to expand</td>
+<td class='tra'  lang='en'>
+Click to expand</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select Parent Theme stylesheet handling:</td>
+<td class='tra'  lang='en'>
+Select Parent Theme stylesheet handling:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use the WordPress style queue.</td>
+<td class='tra'  lang='en'>
+Use the WordPress style queue.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Let the Configurator determine the appropriate actions and dependencies and update the functions file automatically.</td>
+<td class='tra'  lang='en'>
+Let the Configurator determine the appropriate actions and dependencies and update the functions file automatically.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use &lt;code&gt;@import&lt;/code&gt; in the child theme stylesheet.</td>
+<td class='tra'  lang='en'>
+Use &lt;code&gt;@import&lt;/code&gt; in the child theme stylesheet.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Only use this option if the parent stylesheet cannot be loaded using the WordPress style queue. Using &lt;code&gt;@import&lt;/code&gt; is not recommended.</td>
+<td class='tra'  lang='en'>
+Only use this option if the parent stylesheet cannot be loaded using the WordPress style queue. Using &lt;code&gt;@import&lt;/code&gt; is not recommended.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Do not add any parent stylesheet handling.</td>
+<td class='tra'  lang='en'>
+Do not add any parent stylesheet handling.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select this option if this theme already handles the parent theme stylesheet or if the parent theme's &lt;code&gt;style.css&lt;/code&gt; file is not used for its appearance.</td>
+<td class='tra'  lang='en'>
+Select this option if this theme already handles the parent theme stylesheet or if the parent theme's &lt;code&gt;style.css&lt;/code&gt; file is not used for its appearance.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Advanced handling options</td>
+<td class='tra'  lang='en'>
+Advanced handling options</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Ignore parent theme stylesheets.</td>
+<td class='tra'  lang='en'>
+Ignore parent theme stylesheets.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Do not load or parse the parent theme styles. Only use this option if the Child Theme uses a Framework like Genesis and uses &lt;em&gt;only child theme stylesheets&lt;/em&gt; for its appearance.</td>
+<td class='tra'  lang='en'>
+Do not load or parse the parent theme styles. Only use this option if the Child Theme uses a Framework like Genesis and uses &lt;em&gt;only child theme stylesheets&lt;/em&gt; for its appearance.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Repair the header template in the child theme.</td>
+<td class='tra'  lang='en'>
+Repair the header template in the child theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Let the Configurator (try to) resolve any stylesheet issues listed above. This can fix many, but not all, common problems.</td>
+<td class='tra'  lang='en'>
+Let the Configurator (try to) resolve any stylesheet issues listed above. This can fix many, but not all, common problems.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Do not force dependency for these stylesheet handles:</td>
+<td class='tra'  lang='en'>
+Do not force dependency for these stylesheet handles:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+By default, the order of stylesheets that load prior to the primary stylesheet is preserved by treating them as dependencies. In some cases, stylesheets are detected in the preview that are not used site-wide. If necessary, dependency can be removed for specific stylesheets above.</td>
+<td class='tra'  lang='en'>
+By default, the order of stylesheets that load prior to the primary stylesheet is preserved by treating them as dependencies. In some cases, stylesheets are detected in the preview that are not used site-wide. If necessary, dependency can be removed for specific stylesheets above.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Customize the Child Theme Name, Description, Author, Version, etc.:</td>
+<td class='tra'  lang='en'>
+Customize the Child Theme Name, Description, Author, Version, etc.:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Show/Hide Child Theme Attributes</td>
+<td class='tra'  lang='en'>
+Show/Hide Child Theme Attributes</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to toggle form</td>
+<td class='tra'  lang='en'>
+Click to toggle form</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme Name</td>
+<td class='tra'  lang='en'>
+Child Theme Name</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Theme Name</td>
+<td class='tra'  lang='en'>
+Theme Name</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Theme Website</td>
+<td class='tra'  lang='en'>
+Theme Website</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Author</td>
+<td class='tra'  lang='en'>
+Author</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Author Website</td>
+<td class='tra'  lang='en'>
+Author Website</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Theme Description</td>
+<td class='tra'  lang='en'>
+Theme Description</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Description</td>
+<td class='tra'  lang='en'>
+Description</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Theme Tags</td>
+<td class='tra'  lang='en'>
+Theme Tags</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Tags</td>
+<td class='tra'  lang='en'>
+Tags</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Version</td>
+<td class='tra'  lang='en'>
+Version</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Copy Menus, Widgets and other Customizer Settings from the Parent Theme to the Child Theme:</td>
+<td class='tra'  lang='en'>
+Copy Menus, Widgets and other Customizer Settings from the Parent Theme to the Child Theme:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+This option replaces the Child Theme's existing Menus, Widgets and other Customizer Settings with those from the Parent Theme. You should only need to use this option the first time you configure a Child Theme. &lt;strong&gt;Some themes use additional options that cannot be copied with the free verson of CTC. Click the "Upgrade" tab for more information.&lt;/strong&gt;</td>
+<td class='tra'  lang='en'>
+This option replaces the Child Theme's existing Menus, Widgets and other Customizer Settings with those from the Parent Theme. You should only need to use this option the first time you configure a Child Theme. &lt;strong&gt;Some themes use additional options that cannot be copied with the free verson of CTC. Click the "Upgrade" tab for more information.&lt;/strong&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click to run the Configurator:</td>
+<td class='tra'  lang='en'>
+Click to run the Configurator:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Configure Child Theme</td>
+<td class='tra'  lang='en'>
+Configure Child Theme</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Parse Plugin stylesheets:</td>
+<td class='tra'  lang='en'>
+Parse Plugin stylesheets:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Select the plugin stylesheets you wish to customize below.</td>
+<td class='tra'  lang='en'>
+Select the plugin stylesheets you wish to customize below.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Configure Plugin Styles</td>
+<td class='tra'  lang='en'>
+Configure Plugin Styles</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+To find and edit specific selectors within @media query blocks, first choose the query, then the selector. Use the "base" query to edit all other selectors.</td>
+<td class='tra'  lang='en'>
+To find and edit specific selectors within @media query blocks, first choose the query, then the selector. Use the "base" query to edit all other selectors.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+@media Query</td>
+<td class='tra'  lang='en'>
+@media Query</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+( or "base" )</td>
+<td class='tra'  lang='en'>
+( or "base" )</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Selector</td>
+<td class='tra'  lang='en'>
+Selector</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Sample</td>
+<td class='tra'  lang='en'>
+Sample</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Save Child Values</td>
+<td class='tra'  lang='en'>
+Save Child Values</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Delete Child Values</td>
+<td class='tra'  lang='en'>
+Delete Child Values</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Property</td>
+<td class='tra'  lang='en'>
+Property</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Baseline Value</td>
+<td class='tra'  lang='en'>
+Baseline Value</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Value</td>
+<td class='tra'  lang='en'>
+Child Value</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+New Property</td>
+<td class='tra'  lang='en'>
+New Property</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Order</td>
+<td class='tra'  lang='en'>
+Order</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Copy Selector</td>
+<td class='tra'  lang='en'>
+Copy Selector</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Save</td>
+<td class='tra'  lang='en'>
+Save</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Raw CSS</td>
+<td class='tra'  lang='en'>
+Raw CSS</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use to enter shorthand CSS or new @media queries and selectors.</td>
+<td class='tra'  lang='en'>
+Use to enter shorthand CSS or new @media queries and selectors.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Values entered here are merged into existing child styles or added to the child stylesheet if they do not exist in the parent.</td>
+<td class='tra'  lang='en'>
+Values entered here are merged into existing child styles or added to the child stylesheet if they do not exist in the parent.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+New user?</td>
+<td class='tra'  lang='en'>
+New user?</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Click help</td>
+<td class='tra'  lang='en'>
+Click help</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Get CTC Pro and other tools</td>
+<td class='tra'  lang='en'>
+Get CTC Pro and other tools</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Lilaea Media - Responsive Tools for a Mobile World</td>
+<td class='tra'  lang='en'>
+Lilaea Media - Responsive Tools for a Mobile World</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+To find and edit selectors containing specific values for a given property, first choose the property (e.g., "color"), then click "Selectors" for any resulting value. A dialog panel will open with the corresponding selectors, grouped by media query.</td>
+<td class='tra'  lang='en'>
+To find and edit selectors containing specific values for a given property, first choose the property (e.g., "color"), then click "Selectors" for any resulting value. A dialog panel will open with the corresponding selectors, grouped by media query.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Value</td>
+<td class='tra'  lang='en'>
+Value</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+CTC encountered an error:</td>
+<td class='tra'  lang='en'>
+CTC encountered an error:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme &lt;strong&gt;%s&lt;/strong&gt; has been reset. Please configure it using the settings below.</td>
+<td class='tra'  lang='en'>
+Child Theme &lt;strong&gt;%s&lt;/strong&gt; has been reset. Please configure it using the settings below.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Update Key saved successfully.</td>
+<td class='tra'  lang='en'>
+Update Key saved successfully.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme files modified successfully.</td>
+<td class='tra'  lang='en'>
+Child Theme files modified successfully.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Theme &lt;strong&gt;%s&lt;/strong&gt; has been generated successfully.</td>
+<td class='tra'  lang='en'>
+Child Theme &lt;strong&gt;%s&lt;/strong&gt; has been generated successfully.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+IMPORTANT:</td>
+<td class='tra'  lang='en'>
+IMPORTANT:</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+You must %sNetwork enable%s your child theme.</td>
+<td class='tra'  lang='en'>
+You must %sNetwork enable%s your child theme.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Go to Themes</td>
+<td class='tra'  lang='en'>
+Go to Themes</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+%sPreview your child theme%s before activating.</td>
+<td class='tra'  lang='en'>
+%sPreview your child theme%s before activating.</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Live Preview</td>
+<td class='tra'  lang='en'>
+Live Preview</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Parent/ Child</td>
+<td class='tra'  lang='en'>
+Parent/ Child</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Query/ Selector</td>
+<td class='tra'  lang='en'>
+Query/ Selector</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Property/ Value</td>
+<td class='tra'  lang='en'>
+Property/ Value</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Web Fonts &amp; CSS</td>
+<td class='tra'  lang='en'>
+Web Fonts &amp; CSS</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Baseline Styles</td>
+<td class='tra'  lang='en'>
+Baseline Styles</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Child Styles</td>
+<td class='tra'  lang='en'>
+Child Styles</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Files</td>
+<td class='tra'  lang='en'>
+Files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Version: </td>
+<td class='tra'  lang='en'>
+Version: </td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+By: </td>
+<td class='tra'  lang='en'>
+By: </td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Preview</td>
+<td class='tra'  lang='en'>
+Preview</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+ in default Site</td>
+<td class='tra'  lang='en'>
+ in default Site</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Not Network Enabled</td>
+<td class='tra'  lang='en'>
+Not Network Enabled</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Additional Linked Stylesheets</td>
+<td class='tra'  lang='en'>
+Additional Linked Stylesheets</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use &lt;code&gt;@import url( [path] );&lt;/code&gt; to link additional stylesheets. Child Theme Configurator uses the &lt;code&gt;@import&lt;/code&gt; keyword to identify them and convert them to &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags. &lt;strong&gt;Example:&lt;/strong&gt;</td>
+<td class='tra'  lang='en'>
+Use &lt;code&gt;@import url( [path] );&lt;/code&gt; to link additional stylesheets. Child Theme Configurator uses the &lt;code&gt;@import&lt;/code&gt; keyword to identify them and convert them to &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags. &lt;strong&gt;Example:&lt;/strong&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Local Font Files</td>
+<td class='tra'  lang='en'>
+Local Font Files</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Use a relative path to link to webfont kit stylesheets you have uploaded to your Child Theme. &lt;strong&gt;Example:&lt;/strong&gt;</td>
+<td class='tra'  lang='en'>
+Use a relative path to link to webfont kit stylesheets you have uploaded to your Child Theme. &lt;strong&gt;Example:&lt;/strong&gt;</td>
+</tr>
+<tr class='i'>
+<td class='src'  lang='en'>
+Export Child Theme</td>
+<td class='tra'  lang='en'>
+Export Child Theme</td>
+</tr>
+<tr class='i with-comments'>
+<td class='src'  lang='en'>
+http://www.childthemeconfigurator.com</td>
+<td class='tra'  lang='en'>
+http://www.childthemeconfigurator.com</td>
+</tr>
+<tr class='comments'>
+  <td colspan='2'><div><p>
+Plugin URI of the plugin/theme<br>
+</p>
+</div></td>
+</tr>
+<tr class='i with-comments'>
+<td class='src'  lang='en'>
+When using the Customizer is not enough - Create child themes and customize styles, templates, functions and more.</td>
+<td class='tra'  lang='en'>
+When using the Customizer is not enough - Create child themes and customize styles, templates, functions and more.</td>
+</tr>
+<tr class='comments'>
+  <td colspan='2'><div><p>
+Description of the plugin/theme<br>
+</p>
+</div></td>
+</tr>
+<tr class='i with-comments'>
+<td class='src'  lang='en'>
+Lilaea Media</td>
+<td class='tra'  lang='en'>
+Lilaea Media</td>
+</tr>
+<tr class='comments'>
+  <td colspan='2'><div><p>
+Author of the plugin/theme<br>
+</p>
+</div></td>
+</tr>
+<tr class='i with-comments'>
+<td class='src'  lang='en'>
+http://www.lilaeamedia.com</td>
+<td class='tra'  lang='en'>
+http://www.lilaeamedia.com</td>
+</tr>
+<tr class='comments'>
+  <td colspan='2'><div><p>
+Author URI of the plugin/theme<br>
+</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
